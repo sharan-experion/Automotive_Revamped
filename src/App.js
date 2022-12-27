@@ -4,6 +4,9 @@ import Layout from './components/Layout/Layout';
 import UserProfile from './components/Profile/UserProfile';
 import AuthPage from './pages/AuthForm/AuthPage';
 // import HomePage from './pages/HomePage';
+import UserProfile from './pages/UserProfile/UserProfile';
+import AuthPage from './pages/AuthPage';
+import HomePage from './pages/HomePage';
 import AuthContext from './store/auth-context';
 import Loggedin from './pages/Loggedin';
 import AddProduct from './components/Profile/AddProduct';
@@ -13,6 +16,13 @@ import RevenueReport from './components/Profile/RevenueReport';
 import JobCard from './components/Profile/JobCard';
 import EstimationPage from './pages/Estimation/EstimationPage';
 import Invoice from './components/Profile/invoice';
+import AddProduct from './pages/AddProduct/AddProduct';
+import Inventory from './pages/ProductDetails/Inventory';
+import EmployeeDisplay from './pages/EmployeeDisplay';
+import RevenueReport from './pages/RevenueReport/RevenueReport';
+import JobCard from './pages/JobCard/JobCard';
+import EstimationPage from './pages/EstimationPage';
+import Invoice from './pages/BillGeneration/invoice';
 import SheetDisplay from './components/EmployeeDetails/EmployeeDisplay/SheetDisplay';
 
 
