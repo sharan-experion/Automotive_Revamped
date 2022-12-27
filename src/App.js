@@ -11,7 +11,7 @@ import RevenueReport from './pages/RevenueReport/RevenueReport';
 import JobCard from './pages/JobCard/JobCard';
 import EstimationPage from './pages/Estimation/EstimationDetails';
 import Invoice from './pages/BillGeneration/invoice';
-import SheetDisplay from './pages/EmployeeDisplay/SheetDisplay'
+import SheetDisplay from './pages/EmployeeSheetDisplay/EmployeeSheetDisplay'
 
 
 function App() {
@@ -62,11 +62,11 @@ function App() {
 
 
         
-        <Route path='/employeeDetails'>
+        {/* <Route path='/employeeDetails'>
           {authCtx.isLoggedIn &&
             <EmployeeDisplay />}
           {!authCtx.isLoggedIn && <Redirect to='/auth' />}
-        </Route>
+        </Route> */}
 
         <Route path='/revenuereport'>
           {authCtx.isLoggedIn &&
