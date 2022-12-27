@@ -6,7 +6,7 @@ import AuthPage from './pages/AuthPage';
 import HomePage from './pages/HomePage';
 import AuthContext from './store/auth-context';
 import Loggedin from './pages/Loggedin';
-import AddProduct from './components/Profile/AddProduct';
+import AddProduct from './pages/AddProduct/AddProduct';
 import Inventory from './pages/ProductDetails/Inventory';
 import EmployeeDisplay from './pages/EmployeeDisplay';
 import RevenueReport from './pages/RevenueReport/RevenueReport';
