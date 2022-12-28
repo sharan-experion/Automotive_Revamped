@@ -1,5 +1,4 @@
-import React, { useState , useRef , useContext } from 'react';
-import AuthContext from '../../store/auth-context';
+import React, { useState,useRef,useContext,AuthContext } from 'react';
 import classes from './AuthPage.module.css';
 
 const AuthPage = () => {
