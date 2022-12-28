@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Dummy from './pages/Dummy/Dummy';
+import Dummy from '../../api/Dummy';
 import Select from 'react-select';
 import classes from './Addproduct.module.css';
 
