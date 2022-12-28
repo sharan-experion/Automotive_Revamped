@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import AuthPage from '../AuthForm/AuthPage';
+import AuthPage from '../AuthPage/AuthPage';
 import AuthContext from '../../store/auth-context';
 
 

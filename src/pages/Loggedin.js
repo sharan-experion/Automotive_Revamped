@@ -1,4 +1,4 @@
-import Userloggedin from "../components/Loggedin/Userloggedin";
+import Userloggedin from "../pages/UserLoggedin/Userloggedin";
 
 const Loggedin = () => {
   return <Userloggedin />;

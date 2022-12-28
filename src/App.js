@@ -1,24 +1,15 @@
 // import { useContext } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import Layout from './components/Layout/Layout';
-import AuthPage from './pages/AuthForm/AuthPage';
-// import HomePage from './pages/HomePage';
+import AuthPage from './pages/AuthPage/AuthPage';
 import UserProfile from './pages/UserProfile/UserProfile';
-// import HomePage from './pages/HomePage';
-// import AuthContext from './store/auth-context';
-import Loggedin from './pages/Loggedin/Userloggedin';
 import EmployeeDisplay from './pages/EmployeeDetails/EmployeeDetails';
-import EstimationPage from './pages/Estimation/EstimationDetails';
-import AuthContext from './store/auth-context';
 import Loggedin from './pages/Loggedin';
 import AddProduct from './pages/AddProduct/AddProduct';
-import Inventory from './pages/ProductDetails/Inventory';
 import Inventory from './pages/Inventory/Inventory';
 import RevenueReport from './pages/RevenueReport/RevenueReport';
 import JobCard from './pages/JobCard/JobCard';
-import Invoice from './pages/BillGeneration/invoice';
-import SheetDisplay from './pages/EmployeeDisplay/SheetDisplay';
-import StartingPageContent from './pages/StartingPage/StartingPageContent';
+import StartingPageContent from './pages/StartingPageContent/StartingPageContent';
 import Wrapper from './pages/Wrapper/Wrapper';
 
 import EstimationDetails from './pages/EstimationDetails/EstimationDetails';
@@ -37,7 +28,7 @@ function App() {
       <Wrapper>
         <Switch>
       
-            <Route path="/employee/managerslist" component={SheetDisplay}/>
+            <Route path="/employee/managerslist" component={EmployeeSheetDisplay}/>
             <Route path='/' exact>
               <Loggedin />
             </Route>
@@ -71,7 +62,7 @@ function App() {
             </Route>
 
             <Route path='/estimationDetails'>
-              <EstimationPage/>
+              <EstimationDetails/>
             </Route>
 
             <Route path='/invoice'>
