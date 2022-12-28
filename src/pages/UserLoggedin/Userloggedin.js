@@ -1,10 +1,8 @@
 import classes from './Userloggedin.module.css';
 import { FcAutomotive } from "react-icons/fc";
-
 import { FcExternal,  FcViewDetails,FcReadingEbook,FcCalculator,FcComboChart} from "react-icons/fc";
-import { NavLink } from 'react-router-dom';
-// import AddProduct from '../Profile/AddProduct';
 import { Link } from 'react-router-dom';
+
 const Userloggedin =()=>{
 
    
