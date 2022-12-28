@@ -3,7 +3,6 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import Layout from './components/Layout/Layout';
 import AuthPage from './pages/AuthForm/AuthPage';
 // import HomePage from './pages/HomePage';
-import AuthPage from './pages/AuthPage/AuthPage';
 import UserProfile from './pages/UserProfile/UserProfile';
 // import HomePage from './pages/HomePage';
 // import AuthContext from './store/auth-context';
