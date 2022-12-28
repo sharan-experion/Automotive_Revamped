@@ -25,64 +25,58 @@ function App() {
 
   return (
     <Layout>
-      <Route path='/' exact>
-            <StartingPageContent />
-          </Route>
+           <Route path='/' exact>
+              <StartingPageContent />
+            </Route>
       <Wrapper>
-      <Switch>
+        <Switch>
       
-
-      <Route path="/employee/managerslist" component={SheetDisplay}/>
-       
-          
-
-          <Route path='/' exact>
-            <Loggedin />
-          </Route>
-        
-        
-          <Route path='/auth'>
-            <AuthPage />
-          </Route>
-        
-        <Route path='/profile'>
-            <UserProfile />
-        </Route>
-
-        <Route path='/addProduct'>
-            <AddProduct />
-        </Route>
-
-        <Route path='/inventory'> 
-            <Inventory />
-          </Route>
-
-        <Route path='/employeeDetails'>
-            <EmployeeDisplay />
-        </Route>
-
-        <Route path='/revenuereport'>
-            <RevenueReport />
-        </Route>
-
-        <Route path='/jobcard'>
-            <JobCard/>
-        </Route>
-
-        <Route path='/estimationDetails'>
-            <EstimationPage/>
-        </Route>
-
-        <Route path='/invoice'>
-            <Invoice/>
-        </Route>
-
-        <Route path='*'>
-          <Redirect to='/' />
-        </Route>
-       
-      </Switch>
+            <Route path="/employee/managerslist" component={SheetDisplay}/>
+            <Route path='/' exact>
+              <Loggedin />
+            </Route>
       
+            <Route path='/auth'>
+             <AuthPage />
+            </Route>
+        
+            <Route path='/profile'>
+             <UserProfile />
+            </Route>
+
+            <Route path='/addProduct'>
+              <AddProduct />
+            </Route>
+
+            <Route path='/inventory'> 
+             <Inventory />
+            </Route>
+
+            <Route path='/employeeDetails'>
+              <EmployeeDisplay />
+            </Route>
+
+           <Route path='/revenuereport'>
+             <RevenueReport />
+           </Route>
+
+            <Route path='/jobcard'>
+              <JobCard/>
+            </Route>
+
+            <Route path='/estimationDetails'>
+              <EstimationPage/>
+            </Route>
+
+            <Route path='/invoice'>
+              <Invoice/>
+            </Route>
+
+            <Route path='*'>
+              <Redirect to='/' />
+            </Route>
+       
+        </Switch>
       </Wrapper>
     </Layout>
   );

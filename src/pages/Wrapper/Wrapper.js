@@ -7,11 +7,9 @@ function Wrapper(props) {
     const authCtx = useContext(AuthContext);
     return(
         <div>
-            {authCtx.isLoggedIn &&(props.children)}
-            {!authCtx.isLoggedIn &&(<AuthPage/>)}
+            {authCtx.isLoggedIn ? (props.children) : <AuthPage/>}
         </div>
         
     )
-    
 }  
 export default Wrapper;     
