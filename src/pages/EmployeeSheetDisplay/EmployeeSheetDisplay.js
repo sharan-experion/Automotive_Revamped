@@ -1,15 +1,11 @@
-
-
-
-
 import axios from "axios"
 import { useEffect, useRef, useState } from "react"
-import classes from './SheetDisplay.module.css';
+import classes from './EmployeeSheetDisplay.module.css';
 import DataTable from "react-data-table-component";
 
 
 
-const SheetDisplay = () => {
+const EmployeeSheetDisplay = () => {
   useEffect(() => {
     axios.get(`http://127.0.0.1:8000/employee/displayemployee/${sessionStorage.getItem('userID')}`)
       .then(response => {
@@ -83,4 +79,4 @@ const SheetDisplay = () => {
   )
 
 }
-export default SheetDisplay
+export default EmployeeSheetDisplay

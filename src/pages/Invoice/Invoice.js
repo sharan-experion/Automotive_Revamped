@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useEffect, useState,useRef } from "react";
-// import { useLocation } from "react-router-dom";
 import ReactToPrint from 'react-to-print'
 import classes from './Invoice.module.css';
 
