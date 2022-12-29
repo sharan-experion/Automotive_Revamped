@@ -11,7 +11,6 @@ import RevenueReport from './pages/RevenueReport/RevenueReport';
 import JobCard from './pages/JobCard/JobCard';
 import StartingPageContent from './pages/StartingPageContent/StartingPageContent';
 import Wrapper from './pages/Wrapper/Wrapper';
-
 import EstimationDetails from './pages/EstimationDetails/EstimationDetails';
 import Invoice from './pages/Invoice/Invoice';
 import EmployeeSheetDisplay from './pages/EmployeeSheetDisplay/EmployeeSheetDisplay'
@@ -22,9 +21,13 @@ function App() {
 
   return (
     <Layout>
-           <Route path='/' exact>
-              <StartingPageContent />
-            </Route>
+      <Route path='/' exact>
+        <StartingPageContent />
+      </Route>
+      <Route path='/auth'>
+        <AuthPage />
+      </Route>
+      
       <Wrapper>
         <Switch>
       
@@ -32,11 +35,7 @@ function App() {
             <Route path='/' exact>
               <Loggedin />
             </Route>
-      
-            <Route path='/auth'>
-             <AuthPage />
-            </Route>
-        
+            
             <Route path='/profile'>
              <UserProfile />
             </Route>
