@@ -13,7 +13,8 @@ import StartingPageContent from './pages/StartingPageContent/StartingPageContent
 import Wrapper from './pages/Wrapper/Wrapper';
 import EstimationDetails from './pages/EstimationDetails/EstimationDetails';
 import Invoice from './pages/Invoice/Invoice';
-import EmployeeSheetDisplay from './pages/EmployeeSheetDisplay/EmployeeSheetDisplay'
+import EmployeeSheetDisplay from './pages/EmployeeSheetDisplay/EmployeeSheetDisplay';
+import FallBackPage from './pages/FallBack/FallBackPage'
 
 
 function App() {
@@ -21,60 +22,57 @@ function App() {
 
   return (
     <Layout>
-      <Route path='/' exact>
-        <StartingPageContent />
-      </Route>
-      <Route path='/auth'>
-        <AuthPage />
-      </Route>
-      
-      <Wrapper>
-        <Switch>
-      
-            <Route path="/employee/managerslist" component={EmployeeSheetDisplay}/>
-            <Route path='/' exact>
-              <Loggedin />
-            </Route>
-            
-            <Route path='/profile'>
-             <UserProfile />
-            </Route>
+      <Switch>
+        <Route path={['/', '/Automotive_Revamp']} exact>
+          <StartingPageContent />
+        </Route>
+        <Route path='/auth'>
+          <AuthPage />
+        </Route>
+        <Wrapper>
+          <Route path="/employee/managerslist" component={EmployeeSheetDisplay} />
+          <Route path='/' exact>
+            <Loggedin />
+          </Route>
 
-            <Route path='/addProduct'>
-              <AddProduct />
-            </Route>
+          <Route path='/profile'>
+            <UserProfile />
+          </Route>
 
-            <Route path='/inventory'> 
-             <Inventory />
-            </Route>
+          <Route path='/addProduct'>
+            <AddProduct />
+          </Route>
 
-            <Route path='/employeeDetails'>
-              <EmployeeDisplay />
-            </Route>
+          <Route path='/inventory'>
+            <Inventory />
+          </Route>
 
-           <Route path='/revenuereport'>
-             <RevenueReport />
-           </Route>
+          <Route path='/employeeDetails'>
+            <EmployeeDisplay />
+          </Route>
 
-            <Route path='/jobcard'>
-              <JobCard/>
-            </Route>
+          <Route path='/revenuereport'>
+            <RevenueReport />
+          </Route>
 
-            <Route path='/estimationDetails'>
-              <EstimationDetails/>
-            </Route>
+          <Route path='/jobcard'>
+            <JobCard />
+          </Route>
 
-            <Route path='/invoice'>
-              <Invoice/>
-            </Route>
+          <Route path='/estimationDetails'>
+            <EstimationDetails />
+          </Route>
 
-            <Route path='*'>
-              <Redirect to='/' />
-            </Route>
-       
-        </Switch>
-      </Wrapper>
-    </Layout>
+          <Route path='/invoice'>
+            <Invoice />
+          </Route>
+        </Wrapper>
+
+        <Route path='*'>
+          <FallBackPage />
+        </Route>
+      </Switch>
+    </Layout >
   );
 }
 
