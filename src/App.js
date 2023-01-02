@@ -26,6 +26,7 @@ function App() {
         <Route path={['/', '/Automotive_Revamp']} exact>
           <StartingPageContent />
         </Route>
+        
         <Route path='/auth'>
           <AuthPage />
         </Route>
