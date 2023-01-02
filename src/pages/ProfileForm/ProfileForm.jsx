@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import AuthContext from '../../store/auth-context';
 import classes from './ProfileForm.module.css';
 
-const ProfileForm = () => {
+function ProfileForm() {
   const history = useHistory();
 
   const newPasswordInputRef = useRef();
@@ -19,15 +19,15 @@ const ProfileForm = () => {
     fetch('', {
       method: 'GET',
       body: JSON.stringify({
-        
+
         idToken: authCtx.token,
         password: enteredNewPassword,
-        returnSecureToken: false
+        returnSecureToken: false,
       }),
       headers: {
-        'Content-Type': 'application/json'
-      }
-    }).then(res => {
+        'Content-Type': 'application/json',
+      },
+    }).then(() => {
       // assumption: Always succeeds!
 
       history.replace('/');
@@ -37,14 +37,14 @@ const ProfileForm = () => {
   return (
     <form className={classes.form} onSubmit={submitHandler}>
       <div className={classes.control}>
-        <label htmlFor='new-password'>New Password</label>
-        <input type='password' id='new-password' minLength="7" ref={newPasswordInputRef} />
+        <label htmlFor="new-password">New Password</label>
+        <input type="password" id="new-password" minLength="7" ref={newPasswordInputRef} />
       </div>
       <div className={classes.action}>
-        <button>Change Password</button>
+        <button type="button">Change Password</button>
       </div>
     </form>
   );
-};
+}
 
 export default ProfileForm;

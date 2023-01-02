@@ -4,35 +4,33 @@ import classes from './EmployeeDetails.module.css';
 // import ChittyManagers from '../EmployeeSheet/SheetDisplay';
 // import { Route } from 'react-router-dom';
 
-const EmployeeDetails = () => {
-   
-    const [selectedFile,setState] = useState(null);
+function EmployeeDetails() {
+  const [selectedFile, setState] = useState(null);
 
-    const empcodeInputRef = useRef();
-   const phonenoInputRef = useRef();
-    const addressInputRef = useRef();
-    const exprienceInputRef = useRef();
-    const nameInputRef = useRef();
-    const emailInputRef = useRef();
-    const genderInputRef = useRef();
-    const qualificationInputRef = useRef();
-    // const useridInputRef = useRef();
+  const empcodeInputRef = useRef();
+  const phonenoInputRef = useRef();
+  const addressInputRef = useRef();
+  const exprienceInputRef = useRef();
+  const nameInputRef = useRef();
+  const emailInputRef = useRef();
+  const genderInputRef = useRef();
+  const qualificationInputRef = useRef();
+  // const useridInputRef = useRef();
 
-// post method for addemployee starts here
+  // post method for addemployee starts here
 
-async function addEmployeeHandler() {
+  async function addEmployeeHandler() {
     // console.log(districtRef);
     const user = {
-        Empcode: empcodeInputRef.current.value,
-        Name: nameInputRef.current.value,
-        email: emailInputRef.current.value,
-        phoneNo: phonenoInputRef.current.value,
-        address: addressInputRef.current.value,
-        exprience: exprienceInputRef.current.value,
-        gender: genderInputRef.current.value,
-        qualification: qualificationInputRef.current.value,
-        userId: JSON.parse(sessionStorage.getItem("userID"))
-       
+      Empcode: empcodeInputRef.current.value,
+      Name: nameInputRef.current.value,
+      email: emailInputRef.current.value,
+      phoneNo: phonenoInputRef.current.value,
+      address: addressInputRef.current.value,
+      exprience: exprienceInputRef.current.value,
+      gender: genderInputRef.current.value,
+      qualification: qualificationInputRef.current.value,
+      userId: JSON.parse(sessionStorage.getItem('userID')),
     };
     // const myJSON = JSON.stringify(user);
     // console.log(myJSON);
@@ -40,51 +38,47 @@ async function addEmployeeHandler() {
       method: 'POST',
       body: JSON.stringify(user),
       headers: {
-        'Content-Type': 'application/json'
-      }
+        'Content-Type': 'application/json',
+      },
     });
     const data = await response.json();
     console.log(data);
   }
 
-
-    // On file select (from the pop up)
-    const onFileChange = event => {
+  // On file select (from the pop up)
+  const onFileChange = (event) => {
     // Update the state
-        setState(event.target.files[0]);
-    };
+    setState(event.target.files[0]);
+  };
 
+  const onFileUpload = (e) => {
+    e.preventDefault();
+    setState(e.target.files);
 
-    const onFileUpload = (e) => {
-        e.preventDefault();
-        setState(e.target.files);
+    const formData = new FormData();
+    formData.append('employeedetails', selectedFile);
+    fetch('http://127.0.0.1:8000/employee/addemployee/', { method: 'post', body: formData })
+      .then((res) => {
+        if (res.ok) {
+          console.log(res.data);
+          alert('File uploaded successfully.');
+        }
+      });
+  };
 
-        const formData = new FormData();
-        formData.append('employeedetails',selectedFile);
-        fetch('http://127.0.0.1:8000/employee/addemployee/', {method: 'post',body: formData})
-        .then(res => {
-            if (res.ok) {
-                console.log(res.data);
-                alert("File uploaded successfully.")
-            }
-        });
-    };
-
-   
-    const fileData = () => {
-        if (selectedFile) {
-            return (
-                
-                <div className={classes.detailsShown}>
-                    <h6>File Details:</h6>
-                    <p>File Name: {selectedFile.name}</p>
-                    <p>
-                        Last Modified:{" "}
-                        {selectedFile.lastModifiedDate.toDateString()}
-                    </p>
-                </div>
-            );
-        } else {
+  const fileData = () => {
+    if (selectedFile) { return (
+        <div className={classes.detailsShown}>
+                <h6>File Details:</h6>
+                <p>File Name: {selectedFile.name}</p>
+                <p>
+                    Last Modified:{" "}
+                    {selectedFile.lastModifiedDate.toDateString()}
+                </p>
+            </div>
+        );
+        }; 
+        else {
             return (
                 <div>
                     <br />
@@ -97,7 +91,7 @@ async function addEmployeeHandler() {
         }
     };
    
-        return (
+  return (
             <div className={classes.emp}>
                 <h1 className={classes.header}>
                     Employee Data

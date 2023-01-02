@@ -1,76 +1,74 @@
+import Select from 'react-select';
+import { useEffect, useRef, useState } from 'react';
+import axios from 'axios';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import ReactToPrint from 'react-to-print';
+import classes from './EstimationDetails.module.css';
 
-import classes from "./EstimationDetails.module.css";
-import Select from "react-select";
-import { useEffect, useRef, useState } from "react";
-import axios from "axios";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import ReactToPrint from 'react-to-print'
-import { format } from 'date-fns'
-const EstimationDetails = () => {
-  const componentRef=useRef()
-  const [name, setName] = useState("");
-  const [phoneno, setPhoneno] = useState("");
-  const [vehicleno, setVehicleno] = useState("");
-  const [vehicletype, setVehicletype] = useState("");
-  const [engineno, setEngineno] = useState("");
-  const [selectedValue, setSelectedValue] = useState(null)
-  const [chaseno, setChaseno] = useState("");
+function EstimationDetails() {
+  const componentRef = useRef();
+  const [name, setName] = useState('');
+  const [phoneno, setPhoneno] = useState('');
+  const [vehicleno, setVehicleno] = useState('');
+  const [vehicletype, setVehicletype] = useState('');
+  const [engineno, setEngineno] = useState('');
+  const [selectedValue, setSelectedValue] = useState(null);
+  const [chaseno, setChaseno] = useState('');
   const [products, setProducts] = useState([]);
   const [services, setServices] = useState([]);
   const [selectedProducts, setSelectedProducts] = useState([]);
   const [selectedServices, setSelectedServices] = useState([]);
-  const [items, setItems] = useState([])
+  const [items, setItems] = useState([]);
   const [selectedItem, setselectedItem] = useState('');
-  const [type, setType] = useState([{ value: "product", label: "Product" }, { value: "service", label: "Service" }])
+  const [type, setType] = useState([{ value: 'product', label: 'Product' }, { value: 'service', label: 'Service' }]);
   const qty = useRef();
-  const [total, setTotal] = useState(0)
-  const [estimationdate, setEstimationdate] = useState("");
+  // const [total, setTotal] = useState(0);
+  const [estimationdate, setEstimationdate] = useState('');
 
   const handleItmRemove = (type, ind) => {
-    if (type == "product") {
-      let res = [...selectedProducts]
+    if (type == 'product') {
+      const res = [...selectedProducts];
       res.splice(ind, 1);
-      setSelectedProducts(res)
+      setSelectedProducts(res);
       // findSum();
       // console.log(res,"res");
     }
     else {
-      let res = [...selectedServices]
+      const res = [...selectedServices];
       res.splice(ind, 1);
-      setSelectedServices(res)
+      setSelectedServices(res);
       // findSum();
-
     }
-  }
+  };
   useEffect(() => {
     axios.get('http://127.0.0.1:8000/estimate/getestimateproducts/')
-      .then(res => {
-        setProducts(res.data)
-      })
+      .then((res) => {
+        setProducts(res.data);
+      });
     axios.get('http://127.0.0.1:8000/estimate/getservices/')
-      .then(res => {
-        setServices(res.data)
-      })
-  }, [])
-  
-  const handleSelectedItems = value => {
-    setselectedItem(value)
-  }
-  const handleChange = value => {
+      .then((res) => {
+        setServices(res.data);
+      });
+  }, []);
+
+  const handleSelectedItems = (value) => {
+    setselectedItem(value);
+  };
+  const handleChange = (value) => {
     setSelectedValue(value);
-    setselectedItem('')
+    setselectedItem('');
     if (value.value == 'product') {
       setItems(products.map(data => {
         return { label: `${data.productName} (InStock: ${data.productQuantity})`, value: data }
-      }))
-    }
+      }));
+    };
     else {
       setItems(services.map(data => {
         return { label: data.services, value: data }
-      }))
-    }
-  }
+      }));
+    };
+  };
   const handleAdd = () => {
     if (selectedValue.value == "product") {
       if (selectedItem.value) {
@@ -161,7 +159,7 @@ const EstimationDetails = () => {
     
     axios.post("http://127.0.0.1:8000/estimate/addestimate/",{
       vehicleNumber: vehicleno,
-      date:format(estimationdate, 'yyyy-MM-dd'),
+      date: estimationdate,
       cost:selectedProducts.reduce((accumulator, currentValue) => accumulator + currentValue.productPrice, 0) + selectedServices.reduce((accumulator, currentValue) => accumulator + JSON.parse(currentValue.estimatePrice), 0),
       status:false,
       userId: JSON.parse(sessionStorage.getItem("userID")),

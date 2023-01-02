@@ -2,7 +2,7 @@
 // import AddProduct from './AddProduct';
 import classes from './UserProfile.module.css';
 
-const UserProfile = () => {
+function UserProfile() {
   return (
     <section className={classes.profile}>
       <h1>Your User Profile</h1>
@@ -10,6 +10,6 @@ const UserProfile = () => {
       {/* <AddProduct/> */}
     </section>
   );
-};
+}
 
 export default UserProfile;

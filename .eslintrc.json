@@ -10,7 +10,8 @@
     ],
     "settings": {
         "react": {
-            "version": "detect"
+            "version": "detect",
+            "fragment": "Fragment"
         }
     },
     "overrides": [
@@ -23,10 +24,15 @@
         "react"
     ],
     "rules": {
-        
         "react/react-in-jsx-scope": "off",
         "linebreak-style":
          ["error", 
-         "windows"]
+         "windows"],
+         "eqeqeq": "off",
+         "curly":"off",
+         "max-len": ["error", { "code": 150 }]
+
     }
 }
+
+    

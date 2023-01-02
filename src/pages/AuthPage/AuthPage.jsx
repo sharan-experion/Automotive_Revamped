@@ -1,8 +1,8 @@
-import React, { useState,useRef,useContext } from 'react';
+import React, { useState, useRef, useContext } from 'react';
 import AuthContext from '../../store/auth-context';
 import classes from './AuthPage.module.css';
 
-const AuthPage = () => {
+function AuthPage() {
   const nameInputRef = useRef();
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
@@ -13,29 +13,26 @@ const AuthPage = () => {
     setIsLogin((prevState) => !prevState);
   };
   function signuphandler() {
-   
     const enteredName = nameInputRef.current.value;
     const enteredEmail = emailInputRef.current.value;
     const enteredPassword = passwordInputRef.current.value;
     setIsLoading(true);
-    let url;
-    url =
-        'http://127.0.0.1:8000/api/signup/';
-        fetch(url, {
-          method: 'POST',
-          body: JSON.stringify({
-            name: enteredName,
-            email: enteredEmail,
-            password: enteredPassword,
-            // returnSecureToken: true,
-          }),
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }).then(data=>{
-          setIsLoading(false);
-          setIsLogin(true);
-        });
+    const url = 'http://127.0.0.1:8000/api/signup/';
+    fetch(url, {
+      method: 'POST',
+      body: JSON.stringify({
+        name: enteredName,
+        email: enteredEmail,
+        password: enteredPassword,
+        // returnSecureToken: true,
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }).then({
+      setIsLoading(false);,
+      setIsLogin(true);
+    });
         
   }
   // code end**************************
@@ -131,6 +128,6 @@ const AuthPage = () => {
       </form>
     </section>
   );
-};
+}
 
 export default AuthPage;

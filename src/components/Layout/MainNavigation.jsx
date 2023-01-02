@@ -6,11 +6,10 @@ import classes from './MainNavigation.module.css';
 // import AboutUs from '../About/AboutUs';
 // import picture from '../images/iconimage.png';
 
-
-const MainNavigation = () => {
+function MainNavigation() {
   const authCtx = useContext(AuthContext);
 
-  const isLoggedIn = authCtx.isLoggedIn;
+  const { isLoggedIn } = authCtx;
 
   const logoutHandler = () => {
     authCtx.logout();
@@ -21,16 +20,16 @@ const MainNavigation = () => {
     <header className={classes.header}>
 
       {/* <div className={classes.headericon}>
-        <img src={picture}/>  
+        <img src={picture}/>
       </div> */}
-      <div className={classes.headericon}></div>
+      <div className={classes.headericon} />
 
-      <Link to='/'>
+      <Link to="/">
         <div className={classes.logo}>Automotive</div>
       </Link>
       <nav>
         <ul>
-        {/* {!isLoggedIn && (
+          {/* {!isLoggedIn && (
 
           <li>
             <a href='#About'>About</a>
@@ -39,37 +38,35 @@ const MainNavigation = () => {
           {!isLoggedIn && (
 
             <li>
-           <Link to='/auth'>Login</Link>
+              <Link to="/auth">Login</Link>
             </li>
           )}
-          
+
           {isLoggedIn && (
-            
-            <li >
-             <strong className='text-light'>Welcome  {authCtx.user.userName}</strong> 
-             {/* <br></br><Link to='/profile'>profile</Link> */}
+
+            <li>
+              <strong className="text-light">
+                Welcome
+                {authCtx.user.userName}
+              </strong>
+              {/* <br></br><Link to='/profile'>profile</Link> */}
             </li>
 
           )}
           {isLoggedIn && (
-            
-              <button onClick={logoutHandler}>Logout</button>
-            
+
+          <button type="button" onClick={logoutHandler}>Logout</button>
+
           )}
         </ul>
       </nav>
-      
+
     </header>
-    
+
   );
-};
+}
 
 export default MainNavigation;
-
-
-
-
-
 
 // import { useContext } from 'react';
 // import { Link } from 'react-router-dom';
@@ -79,7 +76,6 @@ export default MainNavigation;
 // import image from '../images/landingpage.jpg';
 // import AboutUs from '../About/AboutUs';
 // import picture from '../images/iconimage.png';
-
 
 // const MainNavigation = () => {
 //   const authCtx = useContext(AuthContext);
@@ -95,7 +91,7 @@ export default MainNavigation;
 //     <header className={classes.header}>
 
 //       <div className={classes.headericon}>
-//         <img src={picture}/>  
+//         <img src={picture}/>
 //       </div>
 
 //       <Link to='/'>
@@ -110,22 +106,23 @@ export default MainNavigation;
 //             </li>
 //           )}
 //           {isLoggedIn && (
-            
+
 //             <li >
-//               <strong className='text-light'>Welcome  {authCtx.user.userName}</strong> <Link to='/profile'>Profile</Link>
+//               <strong className='text-light'>Welcome
+// {authCtx.user.userName}</strong> <Link to='/profile'>Profile</Link>
 //             </li>
 
 //           )}
 //           {isLoggedIn && (
-            
+
 //               <button onClick={logoutHandler}>Logout</button>
-            
+
 //           )}
 //         </ul>
 //       </nav>
-      
+
 //     </header>
-    
+
 //   );
 // };
 

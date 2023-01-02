@@ -8,6 +8,7 @@
     "bootstrap": "^5.2.3",
     "chart.js": "^4.0.1",
     "create-react-app": "^5.0.1",
+    "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-bootstrap-validation": "^0.1.11",
     "react-chartjs-2": "^5.0.1",
