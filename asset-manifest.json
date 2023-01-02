@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Automotive_Revamped/static/css/main.374535ee.css",
-    "main.js": "/Automotive_Revamped/static/js/main.33b18066.js",
+    "main.css": "/Automotive_Revamped/static/css/main.cee6e14d.css",
+    "main.js": "/Automotive_Revamped/static/js/main.5e0ffdd3.js",
     "index.html": "/Automotive_Revamped/index.html",
-    "main.374535ee.css.map": "/Automotive_Revamped/static/css/main.374535ee.css.map",
-    "main.33b18066.js.map": "/Automotive_Revamped/static/js/main.33b18066.js.map"
+    "main.cee6e14d.css.map": "/Automotive_Revamped/static/css/main.cee6e14d.css.map",
+    "main.5e0ffdd3.js.map": "/Automotive_Revamped/static/js/main.5e0ffdd3.js.map"
   },
   "entrypoints": [
-    "static/css/main.374535ee.css",
-    "static/js/main.33b18066.js"
+    "static/css/main.cee6e14d.css",
+    "static/js/main.5e0ffdd3.js"
   ]
 }
